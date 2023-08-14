@@ -2,6 +2,7 @@ import React from 'react'
 
 function Index(props) {
     return (
+        <DefaultLayout title='Index View'>
         <div>
             <h1>Index</h1>
             {props.fruits.map((fruit) =>
@@ -21,6 +22,7 @@ function Index(props) {
             <a href={`/meats`}><button>Meats</button></a>
 
         </div>
+        </DefaultLayout>
     )
 }
 

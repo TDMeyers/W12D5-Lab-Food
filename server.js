@@ -34,6 +34,9 @@ app.use(methodOverride('_method'))
 // A middleware that formats the data into an object we can use on req.body
 app.use(express.urlencoded({ extended: true }))
 
+// Look for static files like css in public folder
+app.use(express.static('public'))
+
 // Connect our fruit routes to our express app
 app.use('/fruits', fruitRoutes)
 
@@ -43,5 +46,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log('Listening on port: ' + PORT, process.env.MONGO_URL)
+    console.log('Listening on port: ' + PORT, process.env.MONGO_URI)
 })
