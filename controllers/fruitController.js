@@ -4,23 +4,37 @@ let fruits = require("../models/fruits");
 // Load the Fruit model so we can interact with the collection
 const Fruit = require("../models/Fruit");
 
-// GET /fruits
 module.exports.index = async (req, res) => {
-  console.log(req.query);
   let fruits;
 
   try {
-    fruits = await Fruit.find({
-      $and: [{ color: req.query.color }, { readyToEat: req.query.readyToEat }],
-    });
-    console.log(fruits);
-  } catch (err) {
-    console.log("Failed to create a Fruit document: ", err);
+      fruits = await Fruit.find(req.query)
+  } catch(err) {
+      console.log('Failed to create a Fruit document: ', err)
   }
+  
+  console.log(fruits)
+  res.render('fruits/Index', { fruits })
+}
 
-  console.log(fruits);
-  res.render("fruits/Index", { fruits });
-};
+
+// GET /fruits // sample query attempt
+// module.exports.index = async (req, res) => {
+//   console.log(req.query);
+//   let fruits;
+
+//   try {
+//     fruits = await Fruit.find({
+//       $and: [{ color: req.query.color }, { readyToEat: req.query.readyToEat }],
+//     });
+//     console.log(fruits);
+//   } catch (err) {
+//     console.log("Failed to create a Fruit document: ", err);
+//   }
+
+//   console.log(fruits);
+//   res.render("fruits/Index", { fruits });
+// };
 
 //  GET /fruits/:id
 module.exports.show = async (req, res) => {
