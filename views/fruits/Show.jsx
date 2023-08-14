@@ -12,6 +12,12 @@ export default function Show({ fruit }) {
             <form action={`/fruits/${_id}?_method=DELETE`} method='POST'>
                 <button>Remove</button>
             </form>
+
+            <form action={`/fruits/${index}/edit`}>
+                <button>Edit</button>
+            </form><br />
+
+            <a href='/fruits'>Back</a>
         </div>
     )
 }

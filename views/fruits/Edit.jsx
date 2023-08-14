@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Edit({ fruit, index }) {
-    let { name, color, readyToEat } = fruit
+function Edit({ fruit }) {
+    let { name, color, readyToEat, _id } = fruit
     return (
         <div>
             <h1>Edit</h1>
-            <form action={`/fruits/${index}?_method=PUT`} method='POST'>
+            <form action={`/fruits/${_id}?_method=PUT`} method='POST'>
 
                 <label htmlFor='name'>Name:</label><br />
                 <input type='text' id='name' name='name' value={name}></input><br /><br /><br />
@@ -18,6 +18,9 @@ function Edit({ fruit, index }) {
 
                 <button>Update</button>
             </form>
+
+            <a href={`/fruits/${_id}`}><button>Back to item</button></a>
+        <a href={`/fruits/`}><button>Back to list</button></a>
         </div>
     )
 }

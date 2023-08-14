@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Edit({ meat,index }) {
-    let { name,state,readyToEat } = meat;
+    let { name, state, readyToEat } = meat;
   return (
     <div>
         <h1>Edit</h1>

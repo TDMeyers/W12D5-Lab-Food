@@ -14,8 +14,11 @@ router.get('/', fruitController.index)
 // "new" route
 router.get('/new', fruitController.new)
 
+//"clear" router
+router.delete('/clear', fruitController.clear)
+
 // "destroy" route
-router.delete('/:indexOfFruit', fruitController.destroy)
+router.delete('/:id', fruitController.destroy)
 
 // "update" route
 router.put('/:indexOfFruit', fruitController.update)
@@ -23,8 +26,11 @@ router.put('/:indexOfFruit', fruitController.update)
 // "create" route
 router.post('/', fruitController.create)
 
+//"seed" route
+router.post('/seed', fruitController.seed)
+
 // "edit" route
-router.get('/:indexOfFruit/edit', fruitController.edit)
+router.get('/:id/edit', fruitController.edit)
 
 // "show" route      //   localhost:8080/fruits/:indexOfFruit
 router.get('/:id', fruitController.show)
